@@ -1,0 +1,36 @@
+<h1>The Product List</h1>
+
+<input type="button" value="Create New Product" class="btn btn-warning" (click)="addProductView()">
+<input type="text" [(ngModel)]="searchInput" (keyup)="search()"> {{searchInput}}<br>
+<div class="btn-group" data-toggle="buttons">
+  <label class="btn btn-primary active">
+    <input value="selectedManufacturer" type="radio" name="radios" id="manufacturer" autocomplete="off" [(ngModel)]="selectedManufacturer"> {{selectedManufacturer}}
+  </label>
+  <label class="btn btn-primary">
+    <input value="selectedCategory" type="radio" name="radios" id="category" autocomplete="off" [(ngModel)]="selectedCategory"> {{selectedCategory}}
+  </label>
+
+</div>
+
+<div class="contianer">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th *ngFor="let c of columnHeaders">{{c}}</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of products$ | async">
+                <td *ngFor="let c of columnHeaders">{{p[c]}}</td>
+                <td>
+                    <input type="button" value="Edit" (click)="editSelectedProduct(p.ProductRowId)">
+                </td>
+                <td>
+                    <input type="button" value="Delete" (click)="deleteSelectedProduct(p)">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

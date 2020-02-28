@@ -1,0 +1,41 @@
+<h2>The Product Information</h2>
+<div class="container">
+    <form name="frmProuct">
+        <div class="form-group">
+            <label>Product Row Id</label>
+            <input type="text" name="ProductRowId" class="form-control" [(ngModel)]="product.ProductRowId">
+        </div>
+        <div class="form-group">
+            <label>Product Id</label>
+            <input type="text" name="ProductId" class="form-control" [(ngModel)]="product.ProductId">
+        </div>
+        <div class="form-group">
+            <label>Product Name</label>
+            <input type="text" name="ProductName" class="form-control" [(ngModel)]="product.ProductName">
+        </div>
+        <div class="form-group">
+            <label>Category Name</label>
+            <select class="form-control" name="CategoryName" [(ngModel)]="product.CategoryName">
+        <option *ngFor="let c of categories" value="{{c}}">{{c}}</option>
+      </select>
+        </div>
+        <div class="form-group">
+            <label>Manufacturer</label>
+            <select class="form-control" name="Manufacturer" [(ngModel)]="product.Manufacturer">
+        <option *ngFor="let m of manufacturers" value="{{m}}">{{m}}</option>
+      </select>
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <input type="text" class="form-control" name="Description" [(ngModel)]="product.Description">
+        </div>
+        <div class="form-group">
+            <label>Base Price</label>
+            <input type="text" class="form-control" name="BasePrice" [(ngModel)]="product.BasePrice">
+        </div>
+        <div class="form-group">
+            <input type="button" value="New" class="btn btn-warning" (click)="clear()">
+            <input type="button" value="Save" class="btn btn-success" (click)="save()">
+        </div>
+    </form>
+</div>
